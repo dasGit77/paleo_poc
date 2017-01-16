@@ -1,5 +1,9 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+$config['debug'] = '1';
+$config['enable_devlog_alerts'] = 'n';
+$config['cache_driver'] = 'file';
+$config['index_page'] = 'index.php';
 $config['is_system_on'] = 'y';
 $config['multiple_sites_enabled'] = 'n';
 // ExpressionEngine Config Items
