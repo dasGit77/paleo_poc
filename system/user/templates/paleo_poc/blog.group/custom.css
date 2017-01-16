@@ -1,21 +1,9 @@
-/* Desktop Specific */
-@media (min-width: 991px)
-{
-	body
-    {
-        padding-left: 100px;
-        padding-right: 100px;
-    }
-
-}
-
-/* Larger Device Specific */
+/* Medium size or greater */
 @media (min-width: 768px) 
 {
-	body
+    .nav_search_bar 
     {
-        padding-left: 38px;
-        padding-right: 38px;
+    	width: 110px !important;
     }
     
     .navLinks
@@ -32,17 +20,47 @@
     .navbar {
     	padding-top: 15px !important;
     }
+    
+    
+    .internal-page-preview 
+    {
+        height: 300px;
+        overflow: hidden;
+    }
 
 }
 
+/* Large size or greater */
+@media (min-width: 991px)
+{
+	.pad-content
+    {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    .nav_search_bar 
+    {
+    	width: auto !important;
+    }
+}
 
-/* Mobile Specific */
+/* Smaller than large size */
+@media (max-width: 991px)
+{
+    .pad-content
+    {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+/* Smaller than medium size */
 @media (max-width: 768px) 
 {
-	body
+	.pad-content
     {
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     
     .navLinks
@@ -57,7 +75,7 @@
 
   	.navbar-toggle 
 	{
-   		margin-top: 25px; // Adjust toggle position
+   		margin-top: 25px; /* Adjust toggle position*/
   	}
     
     /* Center navbar links */
@@ -65,12 +83,38 @@
     {
     	text-align: center;
   	}
+    
+    /* Make internal page previews look better */
+    .hide-on-sm
+    {
+        max-height: 0 !important;
+        display: none;
+    }
+    
+    .internal-page-preview 
+    {
+        height: auto;
+        overflow: hidden;
+    }
+    
+    h3
+    {
+        font-size: 1.4em;
+    }
+}
+
+body 
+{
+    /* background-image: */
+    background-color: aqua;
 }
 
 footer 
 {
-	padding: 15px;
+    color: darkgrey;
+    background-color: #666;
 }
+
 
 /* Support glup and fa icon inside input from: http://bootsnipp.com/snippets/featured/support-glyph-and-fa-icon-inside-input */
 .icon-addon {
@@ -146,12 +190,4 @@ footer
 .icon-addon .form-control:focus + .fa,
 .icon-addon:hover .fa {
     color: #2580db;
-}
-
-/* The navbar needs to collapse earlier */
-@media (min-width: 768px) and (max-width: 991px) {
-    #nav_search_bar 
-    {
-    	width: auto !important;
-    }
 }

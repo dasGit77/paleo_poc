@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Paleo POC</title>
+	<title>PaleoSun Proof of Concept</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
@@ -23,7 +23,7 @@
 	
 </head>
 <body>
-	<nav class="navbar">
+	<nav class="navbar pad-content">
 		<!-- Header and mobile button -->
 			<div class="navbar-header navbar-default">
 			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#index_navbar" aria-expanded="false">
@@ -49,51 +49,70 @@
 			  	<form class="navbar-form navbar-right" role="search">
 					<div class="form-group icon-addon">
 				  		<input type="text" class="form-control nav_search_bar">
-						<label class="glyphicon glyphicon-search" class="form control" rel="tooltip" title="search"></span>
+                        <label class="glyphicon glyphicon-search" class="form control" rel="tooltip" title="search"></label>
 					</div>
 				</form>
 			</div>
 	</nav>
-	
-	<div class="container-fluid">
+	<main>
+    <div class="container-fluid pad-content">
 	  <div class="row">
 		  We Give Life to Your Ideas
 	  </div>
 	  <div class="row">
-	  	<div class="col-6 col-md3">
-			What we can do
-	  	</div>
-		<div class="col-6 col-md3">
-			A little bit about me
-	  	</div>
-		<div class="col-6 col-md3">
-			Follow me on twitter
-	  	</div>
-		<div class="col-6 col-md3">
-			Feel free to contact me
-	  	</div>
+	  	{exp:channel:entries channel="internal_pages" limit="4"}
+          <div class="col-sm-3 col-xs-6">
+              <div class="text internal-page-preview">
+                 <h3>{title}</h3>
+                  <div class="hide-on-sm">
+                     <em>{headline}</em>
+			         <p>{body_text}</p>
+                  </div>
+
+              </div>
+          <!--<a href="{url_title_path='channel/archives'}">Read More</a> -->
+              <a href="#">Read More</a>
+          </div>
+
+			{/exp:channel:entries}
 	  </div>
 	  <div class="row">
 		  <div id="recentWork">
-			{exp:channel:entries channel="recent_work" limit="4"}
-			<h2>{title}</h2>
-			{blog_post}
-			{/exp:channel:entries}
 		  </div>
 	  </div>
-	</div>
-	<footer class="navbar-fixed-bottom">
-		<row>
-			<div class="col-md-4">
-			</div>
-			<div class="col-md-4">
-				Smart Web Development.<br>
-				t: (828) 582 - 4975 e: info@paleosun.com
-			</div>
-			<div class="col-md-4">
-				Copyright 2016. PaleoSun, Inc.
-			</div>
-		</row>
+	</div> 
+    </main>
+	<footer>
+        <div>
+            <div class="row pad-content">
+                <div class="col-sm-3 col-xs-6">
+                <!-- Standard internal page, link by id to About Portfolio -->
+                    Test
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                <!-- RSS widget goes here -->
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                <!-- Twitter widget goes here -->
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                <!-- Flickr Widget goes here -->
+                </div>
+            </div>
+            <div class="row pad-content" style="background-color: #444; padding-top: 15px;">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4">
+                    Smart Web Development.<br>
+                    t: (828) 582 - 4975 e: info@paleosun.com
+                </div>
+                <div class="col-sm-4">
+                    Copyright 2016. PaleoSun, Inc.
+                </div>
+            </div>
+        
+        </div>
+        
 	</footer>
 	  
 </body>
