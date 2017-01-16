@@ -1,0 +1,157 @@
+/* Desktop Specific */
+@media (min-width: 991px)
+{
+	body
+    {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+}
+
+/* Larger Device Specific */
+@media (min-width: 768px) 
+{
+	body
+    {
+        padding-left: 38px;
+        padding-right: 38px;
+    }
+    
+    .navLinks
+    {
+        border-left: solid 1px #000;
+    }
+
+    /* Prevent double borders */
+    .navLinks > li
+    {
+        border-right: solid 1px #000;
+    }
+    
+    .navbar {
+    	padding-top: 15px !important;
+    }
+
+}
+
+
+/* Mobile Specific */
+@media (max-width: 768px) 
+{
+	body
+    {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    
+    .navLinks
+    {
+    	border-top: solid 1px #ccc;
+    }
+
+    .navLinks > li
+    {
+        border-bottom: solid 1px #ccc;
+    }
+
+  	.navbar-toggle 
+	{
+   		margin-top: 25px; // Adjust toggle position
+  	}
+    
+    /* Center navbar links */
+    .navbar-nav li
+    {
+    	text-align: center;
+  	}
+}
+
+footer 
+{
+	padding: 15px;
+}
+
+/* Support glup and fa icon inside input from: http://bootsnipp.com/snippets/featured/support-glyph-and-fa-icon-inside-input */
+.icon-addon {
+    position: relative;
+    color: #555;
+    display: block;
+}
+
+.icon-addon:after,
+.icon-addon:before {
+    display: table;
+    content: " ";
+}
+
+.icon-addon:after {
+    clear: both;
+}
+
+.icon-addon.addon-md .glyphicon,
+.icon-addon .glyphicon, 
+.icon-addon.addon-md .fa,
+.icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 14px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 1px
+}
+
+.icon-addon.addon-lg .form-control {
+    line-height: 1.33;
+    height: 46px;
+    font-size: 18px;
+    padding: 10px 16px 10px 40px;
+}
+
+.icon-addon.addon-sm .form-control {
+    height: 30px;
+    padding: 5px 10px 5px 28px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.icon-addon.addon-lg .fa,
+.icon-addon.addon-lg .glyphicon {
+    font-size: 18px;
+    margin-left: 0;
+    left: 11px;
+    top: 4px;
+}
+
+.icon-addon.addon-md .form-control,
+.icon-addon .form-control {
+    padding-left: 30px;
+    float: left;
+    font-weight: normal;
+}
+
+.icon-addon.addon-sm .fa,
+.icon-addon.addon-sm .glyphicon {
+    margin-left: 0;
+    font-size: 12px;
+    left: 5px;
+    top: -1px
+}
+
+.icon-addon .form-control:focus + .glyphicon,
+.icon-addon:hover .glyphicon,
+.icon-addon .form-control:focus + .fa,
+.icon-addon:hover .fa {
+    color: #2580db;
+}
+
+/* The navbar needs to collapse earlier */
+@media (min-width: 768px) and (max-width: 991px) {
+    #nav_search_bar 
+    {
+    	width: auto !important;
+    }
+}
