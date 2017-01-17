@@ -28,6 +28,21 @@
         overflow: hidden;
     }
 
+    footer
+    {
+        height: 400px;
+    }
+
+    body 
+    {
+        margin-bottom: 400px;
+    }
+
+    h3
+    {
+        font-size: 1.2em;
+        font-weight: bold
+    }
 }
 
 /* Large size or greater */
@@ -35,13 +50,19 @@
 {
 	.pad-content
     {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 200px;
+        padding-right: 200px;
     }
     .nav_search_bar 
     {
     	width: auto !important;
     }
+
+    .internal-page-preview 
+    {
+        max-width: 250px;
+    }
+
 }
 
 /* Smaller than large size */
@@ -99,21 +120,67 @@
     
     h3
     {
-        font-size: 1.4em;
+        font-size: 1.2em;
+        font-weight: bold;
     }
+
+    footer 
+    {
+        /* Taller footer to compensate for text stacking */
+        height: 600px;
+    }
+
+    body 
+    {
+        margin-bottom: 600px;
+    }
+}
+
+html
+{
+    position: relative;
+    min-height: 100%;
 }
 
 body 
 {
     /* background-image: */
-    background-color: aqua;
+    background-color: white;
 }
 
 footer 
 {
     color: darkgrey;
     background-color: #666;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
 }
+
+.inner-footer
+{
+    background-color: #444;  
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 15px;
+}
+
+.navbar-img
+{
+    height: 40px;
+    width: auto;
+}
+
+/*
+.internal-page-link
+{
+    margin-top: 15px;
+    border-top-style: dashed;
+} */
 
 
 /* Support glup and fa icon inside input from: http://bootsnipp.com/snippets/featured/support-glyph-and-fa-icon-inside-input */

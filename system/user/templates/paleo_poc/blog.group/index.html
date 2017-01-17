@@ -8,9 +8,9 @@
 	 <!-- ***Stylesheets*** -->
 	 <!-- Bootstrap -->
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	 <!---Normalize-->
+	 <!-- Normalize -->
 	 <!--<link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css">-->
-	 <!---Custom--->
+	 <!-- Custom -->
 	 <link rel="stylesheet" type="text/css" media="all" href="{stylesheet='blog/custom'}">
 	
 	<!-- ***Scripts*** -->
@@ -25,19 +25,19 @@
 <body>
 	<nav class="navbar pad-content">
 		<!-- Header and mobile button -->
-			<div class="navbar-header navbar-default">
-			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#index_navbar" aria-expanded="false">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#index_navbar" aria-expanded="false">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-			  </button>
-			  <a class="navbar-brand" href="#">Brand</a>
+				</button>
+				<a class="navbar-brand" href="#">{exp:channel:entries channel="static_images" url_title="paleosun-logo"}<img class="navbar-img" src="{image_file}" alt="{image_alt_tag}">{/exp:channel:entries}</a>
 			</div>
 			
 		<!-- Links -->
 			<div class="collapse navbar-collapse navbar-right" id="index_navbar">
-      			<ul class="nav navbar-nav navLinks">
+				<ul class="nav navbar-nav navLinks">
 					<li><a href="#">Home</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Portfolio</a></li>
@@ -46,45 +46,47 @@
 					<li><a href="#">Contact</a></li>
 				</ul>
 
-			  	<form class="navbar-form navbar-right" role="search">
+				<form class="navbar-form navbar-right" role="search">
 					<div class="form-group icon-addon">
-				  		<input type="text" class="form-control nav_search_bar">
-                        <label class="glyphicon glyphicon-search" class="form control" rel="tooltip" title="search"></label>
+						<input type="text" class="form-control nav_search_bar">
+						<label class="glyphicon glyphicon-search" class="form control" rel="tooltip" title="search"></label>
 					</div>
 				</form>
 			</div>
 	</nav>
 	<main>
-    <div class="container-fluid pad-content">
-	  <div class="row">
-		  We Give Life to Your Ideas
-	  </div>
-	  <div class="row">
-	  	{exp:channel:entries channel="internal_pages" limit="4"}
-          <div class="col-sm-3 col-xs-6">
-              <div class="text internal-page-preview">
-                 <h3>{title}</h3>
-                  <div class="hide-on-sm">
-                     <em>{headline}</em>
-			         <p>{body_text}</p>
-                  </div>
+		<div class="container-fluid pad-content">
+			<div class="row">
+				We Give Life to Your Ideas
+			</div>
+			<div class="row">
+			{exp:channel:entries channel="internal_pages" limit="4"}
+				<div class="col-sm-3 col-xs-6">
+					<div class="text internal-page-preview">
+						<h3>{title}</h3>
+						<br>
+						<div class="hide-on-sm">
+							<em>{headline}</em>
+							<br><br>
+							<p>{body_text}</p>
+						</div>
 
-              </div>
-          <!--<a href="{url_title_path='channel/archives'}">Read More</a> -->
-              <a href="#">Read More</a>
-          </div>
+					</div>
+				<!--<a href="{url_title_path='channel/archives'}">Read More</a> -->
+					<a class="internal-page-link" href="#">Read More</a>
+				</div>
 
-			{/exp:channel:entries}
-	  </div>
-	  <div class="row">
-		  <div id="recentWork">
-		  </div>
-	  </div>
-	</div> 
-    </main>
+				{/exp:channel:entries}
+			</div>
+			<div class="row">
+				<div id="recentWork">
+				</div>
+			</div>
+		</div> 
+	</main>
 	<footer>
         <div>
-            <div class="row pad-content">
+            <div class="row pad-content" style="max-width: 100%;">
                 <div class="col-sm-3 col-xs-6">
                 <!-- Standard internal page, link by id to About Portfolio -->
                     Test
@@ -99,15 +101,22 @@
                 <!-- Flickr Widget goes here -->
                 </div>
             </div>
-            <div class="row pad-content" style="background-color: #444; padding-top: 15px;">
+            <div class="row inner-footer">
                 <div class="col-sm-4">
+					<br>
+					{exp:channel:entries channel="static_images" url_title="paleosun-logo"}<img class="navbar-img center-block" src="{image_file}" alt="{image_alt_tag}">{/exp:channel:entries}
+					
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 text-center">
+					<br>
                     Smart Web Development.<br>
                     t: (828) 582 - 4975 e: info@paleosun.com
+					
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 text-center">
+					<br>
                     Copyright 2016. PaleoSun, Inc.
+					
                 </div>
             </div>
         
