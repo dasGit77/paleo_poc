@@ -1,4 +1,37 @@
-/* Medium size or greater */
+/* Extra small size or greater (phone) */
+@media (min-width: 480px)
+{
+    .pad-content
+    {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+  	.navbar-toggle 
+	{
+   		margin-top: 25px; /* Adjust toggle position*/
+  	}
+    
+    /* Center navbar links */
+    .navbar-nav li
+    {
+    	text-align: center;
+  	}
+    
+    .internal-page-preview 
+    {
+        height: auto;
+        overflow: hidden;
+    }
+    
+    h3
+    {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+}
+
+/* Small size or greater (tablet) */
 @media (min-width: 768px) 
 {
     .nav_search_bar 
@@ -28,30 +61,45 @@
         overflow: hidden;
     }
 
+    /* Static footer starts at tablet size */
+    html
+    {
+        position: relative;
+        min-height: 100%;
+    }
+
     footer
     {
-        height: 400px;
+        position: absolute;
+        bottom: 0;
+        height: 450px;
+    }
+
+    .inner-footer
+    {
+        position: absolute;
+        bottom: 0;
     }
 
     body 
     {
-        margin-bottom: 400px;
+        margin-bottom: 450px;
     }
 
-    h3
+    .pad-content
     {
-        font-size: 1.2em;
-        font-weight: bold
+        padding-left: 50px;
+        padding-right: 50px;
     }
 }
 
-/* Large size or greater */
-@media (min-width: 991px)
+/* Medium size or greater (desktop) */
+@media (min-width: 992px)
 {
 	.pad-content
     {
-        padding-left: 200px;
-        padding-right: 200px;
+        padding-left: 130px;
+        padding-right: 130px;
     }
     .nav_search_bar 
     {
@@ -65,25 +113,63 @@
 
 }
 
-/* Smaller than large size */
-@media (max-width: 991px)
+/* Huge size or greater (desktop)*/
+@media (min-width: 1200px)
 {
     .pad-content
     {
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 180px;
+        padding-right: 180px;
+    }
+
+    footer
+    {
+        height: 350px;
+    }
+
+    body 
+    {
+        margin-bottom: 350px;
     }
 }
 
-/* Smaller than medium size */
-@media (max-width: 768px) 
+/* Getting close to HD size */
+@media (min-width: 1600px)
 {
-	.pad-content
+    .pad-content
     {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 250px;
+        padding-right: 250px;
     }
-    
+
+    footer
+    {
+        height: 320px;
+    }
+
+    body 
+    {
+        margin-bottom: 320px;
+    }
+}
+
+/* HD size */
+/*
+@media (min-width: 1920)
+{
+
+} */
+
+/* Smaller than tablet size */
+@media (max-width: 768px)
+{
+    h3
+    {
+        font-size: 1.2em;
+        font-weight: bold
+    }
+
+        
     .navLinks
     {
     	border-top: solid 1px #ccc;
@@ -93,53 +179,17 @@
     {
         border-bottom: solid 1px #ccc;
     }
+}
 
-  	.navbar-toggle 
-	{
-   		margin-top: 25px; /* Adjust toggle position*/
-  	}
-    
-    /* Center navbar links */
-    .navbar-nav li
-    {
-    	text-align: center;
-  	}
-    
+/* Smaller than phone size */
+@media (max-width: 480px)
+{
     /* Make internal page previews look better */
     .hide-on-sm
     {
         max-height: 0 !important;
         display: none;
     }
-    
-    .internal-page-preview 
-    {
-        height: auto;
-        overflow: hidden;
-    }
-    
-    h3
-    {
-        font-size: 1.2em;
-        font-weight: bold;
-    }
-
-    footer 
-    {
-        /* Taller footer to compensate for text stacking */
-        height: 600px;
-    }
-
-    body 
-    {
-        margin-bottom: 600px;
-    }
-}
-
-html
-{
-    position: relative;
-    min-height: 100%;
 }
 
 body 
@@ -152,10 +202,7 @@ footer
 {
     color: darkgrey;
     background-color: #666;
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    
 }
 
 .inner-footer
@@ -164,8 +211,6 @@ footer
     width: 100%;
     height: auto;
     margin: 0px;
-    position: absolute;
-    bottom: 0;
     padding-bottom: 15px;
 }
 
@@ -173,6 +218,16 @@ footer
 {
     height: 40px;
     width: auto;
+}
+
+.min-line-height 
+{
+    line-height: 110%;
+}
+
+.med-line-height
+{
+    line-height: 130%;
 }
 
 /*

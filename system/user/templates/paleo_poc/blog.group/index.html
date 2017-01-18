@@ -20,7 +20,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 	<!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
 </head>
 <body>
 	<nav class="navbar pad-content">
@@ -32,7 +31,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">{exp:channel:entries channel="static_images" url_title="paleosun-logo"}<img class="navbar-img" src="{image_file}" alt="{image_alt_tag}">{/exp:channel:entries}</a>
+				<a class="navbar-brand" href="#">{exp:channel:entries channel="static_content" url_title="paleosun-logo"}<img class="navbar-img" src="{image_file}" alt="{image_alt_tag}">{/exp:channel:entries}</a>
 			</div>
 			
 		<!-- Links -->
@@ -87,24 +86,53 @@
 	<footer>
         <div>
             <div class="row pad-content" style="max-width: 100%;">
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-3 col-xs-6 min-line-height ">
                 <!-- Standard internal page, link by id to About Portfolio -->
-                    Test
+					{exp:channel:entries channel="static_content" url_title="about-portfolio"}
+					<h3>{title}</h3>
+					<hr>
+					{text}
+					{/exp:channel:entries}
                 </div>
                 <div class="col-sm-3 col-xs-6">
-                <!-- RSS widget goes here -->
+					<h3>Recent Posts</h3>
+					<hr>
+					<?php
+						// Start by loading the feed into an xml file.
+						$url = "http://paleosun.com/blog/rss/";
+						$rssXml = simplexml_load_file($url); // XML parser
+						// Encode the xml as json, then decode the xml into a php array
+						$json = json_encode($rssXml);
+						$array = json_decode($json,TRUE);
+						
+						// Create two arrays with similar index mappings for title and url
+						// TODO: Convert to a single json array object for better control
+						$nameArray = array();
+						$urlArray = array();
+
+						for($i = 0; $i < 4; $i++) {
+							$nameArray[$i] = $array["channel"]["item"][$i]["title"];
+							$urlArray[$i] = $array["channel"]["item"][$i]["link"];
+							echo "<div class='min-line-height'><a href='$urlArray[$i]'>$nameArray[$i]</a><br><br></div>";
+						}
+					?>
+                	<!-- RSS widget goes here -->
                 </div>
-                <div class="col-sm-3 col-xs-6">
-                <!-- Twitter widget goes here -->
+                <div class="col-sm-3">
+					<h3>Twitter Widget</h3>
+					<hr>
+                	<!-- Twitter widget goes here -->
                 </div>
-                <div class="col-sm-3 col-xs-6">
-                <!-- Flickr Widget goes here -->
+                <div class="col-sm-3">
+					<h3>Flickr Widget Widget</h3>
+					<hr>
+                	<!-- Flickr Widget goes here -->
                 </div>
             </div>
             <div class="row inner-footer">
                 <div class="col-sm-4">
 					<br>
-					{exp:channel:entries channel="static_images" url_title="paleosun-logo"}<img class="navbar-img center-block" src="{image_file}" alt="{image_alt_tag}">{/exp:channel:entries}
+					{exp:channel:entries channel="static_content" url_title="paleosun-logo"}<img class="navbar-img center-block" src="{image_file}" alt="{image_alt_tag}">{/exp:channel:entries}
 					
                 </div>
                 <div class="col-sm-4 text-center">
