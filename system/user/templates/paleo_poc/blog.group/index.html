@@ -20,9 +20,15 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 	<!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- My javascript -->
+	<script src="{path=blog/main}"></script>
 </head>
+
 <body>
-	<nav class="navbar pad-content">
+	<div id="background-div"></div>
+	<nav class="navbar">
+		<div class="container-fluid pad-navbar">
 		<!-- Header and mobile button -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#index_navbar" aria-expanded="false">
@@ -37,21 +43,21 @@
 		<!-- Links -->
 			<div class="collapse navbar-collapse navbar-right" id="index_navbar">
 				<ul class="nav navbar-nav navLinks">
-					<li><a href="#">Home</a></li>
+					<li><a class="active" href="#">Home</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Portfolio</a></li>
 					<li><a href="#">Blog</a></li>
 					<li><a href="#">Archives</a></li>
 					<li><a href="#">Contact</a></li>
 				</ul>
-
-				<form class="navbar-form navbar-right" role="search">
+				<form class="navbar-form navbar-right desktop-navbar" role="search">
 					<div class="form-group icon-addon">
 						<input type="text" class="form-control nav_search_bar">
 						<label class="glyphicon glyphicon-search" class="form control" rel="tooltip" title="search"></label>
 					</div>
 				</form>
 			</div>
+		</div>
 	</nav>
 	<main>
 		<div class="container-fluid pad-content">
@@ -60,33 +66,52 @@
 			</div>
 			<div class="row">
 			{exp:channel:entries channel="internal_pages" limit="4"}
-				<div class="col-sm-3 col-xs-6">
+				<div class="col-sm-3 col-xs-12">
 					<div class="text internal-page-preview">
 						<h3>{title}</h3>
 						<br>
-						<div class="hide-on-sm">
+						<div>
 							<em>{headline}</em>
 							<br><br>
 							<p>{body_text}</p>
 						</div>
-
 					</div>
 				<!--<a href="{url_title_path='channel/archives'}">Read More</a> -->
+					<br>
+					<div class="short-border"></div>
 					<a class="internal-page-link" href="#">Read More</a>
+					<br><br>
 				</div>
 
 				{/exp:channel:entries}
 			</div>
 			<div class="row">
+				<div class="col-sm-12 col-sm-offset-0">
+					<h3>Recent Work</h3>
+					<hr>
+					</div>
+				
+			</div>
+			<div class="row">
 				<div id="recentWork">
+					<row>
+						<!-- First entry should be text, next three are recent work or empty -->
+						<div class="col-sm-3">{exp:channel:entries channel="static_content" url_title="rw-intro"}{text}{/exp:channel:entries}</div>
+						{exp:channel:entries channel="recent_work" paginate="bottom"}
+
+						{/exp:channel:entries}
+					</row>
+					<row>
+						<!-- First row is empty, next three are recent work or empty -->
+					</row>
 				</div>
 			</div>
 		</div> 
 	</main>
 	<footer>
         <div>
-            <div class="row pad-content" style="max-width: 100%;">
-                <div class="col-sm-3 col-xs-6 min-line-height ">
+            <div class="row pad-content" style="margin: 0px;">
+                <div class="col-sm-3 min-line-height ">
                 <!-- Standard internal page, link by id to About Portfolio -->
 					{exp:channel:entries channel="static_content" url_title="about-portfolio"}
 					<h3>{title}</h3>
@@ -94,14 +119,14 @@
 					{text}
 					{/exp:channel:entries}
                 </div>
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-3">
 					<h3>Recent Posts</h3>
 					<hr>
 					<?php
 						// Start by loading the feed into an xml file.
 						$url = "http://paleosun.com/blog/rss/";
 						$rssXml = simplexml_load_file($url); // XML parser
-						// Encode the xml as json, then decode the xml into a php array
+						// Encode the xml as json, then decode the json into a php array
 						$json = json_encode($rssXml);
 						$array = json_decode($json,TRUE);
 						
@@ -113,7 +138,7 @@
 						for($i = 0; $i < 4; $i++) {
 							$nameArray[$i] = $array["channel"]["item"][$i]["title"];
 							$urlArray[$i] = $array["channel"]["item"][$i]["link"];
-							echo "<div class='min-line-height'><a href='$urlArray[$i]'>$nameArray[$i]</a><br><br></div>";
+							echo "<div class='min-line-height'><a class='footer-link' href='$urlArray[$i]'>$nameArray[$i]</a><br><br></div>";
 						}
 					?>
                 	<!-- RSS widget goes here -->
@@ -151,6 +176,6 @@
         </div>
         
 	</footer>
-	  
+
 </body>
 </html>
