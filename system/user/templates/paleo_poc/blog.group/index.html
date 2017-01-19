@@ -5,13 +5,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-	 <!-- ***Stylesheets*** -->
-	 <!-- Bootstrap -->
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	 <!-- Normalize -->
-	 <!--<link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css">-->
-	 <!-- Custom -->
-	 <link rel="stylesheet" type="text/css" media="all" href="{stylesheet='blog/custom'}">
+	<!-- ***Stylesheets*** -->
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Normalize -->
+	<!--<link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css">-->
+	<!-- flexslider CSS -->
+	<link href="../public/scripts/flexSlider/flexslider.css" rel="stylesheet" />
+	<!-- Custom -->
+	<link rel="stylesheet" type="text/css" media="all" href="{stylesheet='blog/custom'}">
 	
 	<!-- ***Scripts*** -->
 	<!-- jQuery -->
@@ -20,9 +22,18 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 	<!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+	<!-- flexslider -->
+	<script src="../public/scripts/flexSlider/jquery.flexslider.js"></script>
+	<!-- velocity -->
+	<script src="../public/scripts/velocity-1.4.1/velocity.min.js"></script>
 	<!-- My javascript -->
 	<script src="{path=blog/main}"></script>
+
+	<!-- Notes
+	flexslider is verified to work in  Safari 4+, Chrome 4+, Firefox 3.6+, Opera 10+, and IE7+.
+	velocity.js is much faster then using jquery for animation, and will work without clashing with it. It's
+	also very much backwards-browser-compatible
+	-->
 </head>
 
 <body>
@@ -61,8 +72,25 @@
 	</nav>
 	<main>
 		<div class="container-fluid pad-content">
-			<div class="row">
-				We Give Life to Your Ideas
+			<div class="flexslider">
+				<ul class="slides">
+					<!-- It's important that these entries in static content have a valid picture and alt tag, or the slider will break -->
+					{exp:channel:entries channel="static_content" entry_id_from="10" entry_id_to="14" sort="asc"}
+					<li>
+						<div>
+							<div class="row"><div class="col-12"><h2>{title}</h2></div></div>
+							<div class="row">
+								<div class="col-sm-6">
+									<p>{text}</p>
+								</div>
+								<div class="col-sm-6">
+									<img class="" src={image_file} alt={image_alt_tag}>
+								</div>
+							</div>					
+						</div>
+					</li>
+					{/exp:channel:entries}
+				</ul>
 			</div>
 			<div class="row">
 			{exp:channel:entries channel="internal_pages" limit="4"}
@@ -94,16 +122,16 @@
 			</div>
 			<div class="row">
 				<div id="recentWork">
-					<row>
+					<div class="row">
 						<!-- First entry should be text, next three are recent work or empty -->
 						<div class="col-sm-3">{exp:channel:entries channel="static_content" url_title="rw-intro"}{text}{/exp:channel:entries}</div>
 						{exp:channel:entries channel="recent_work" paginate="bottom"}
 
 						{/exp:channel:entries}
-					</row>
-					<row>
+					</div>
+					<div class="row">
 						<!-- First row is empty, next three are recent work or empty -->
-					</row>
+					</div>
 				</div>
 			</div>
 		</div> 
