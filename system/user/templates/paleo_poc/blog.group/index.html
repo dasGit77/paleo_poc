@@ -58,7 +58,7 @@
 			<div class="collapse navbar-collapse navbar-right" id="index_navbar">
 				<ul class="nav navbar-nav navLinks">
 					<li class="homeButtonContainer"><a class="homeButton" href="#">Home</a></li>
-					<li><a href="#">About</a></li>
+					<li><a href="#" style="border-left: 1px solid black">About</a></li>
 					<li><a href="#">Portfolio</a></li>
 					<li><a href="#">Blog</a></li>
 					<li><a href="#">Archives</a></li>
@@ -108,7 +108,7 @@
 			<div class="row">
 			{exp:channel:entries channel="internal_pages" limit="4"}
 				<div class="col-sm-3 col-xs-12 border-on-mobile">
-					<div class="text internal-page-preview">
+					<div class="text internal-page-preview fading-border">
 						<h3>{title}</h3>
 						<br>
 						<div>
@@ -138,7 +138,7 @@
 				<div class="container-fluid">
 					<div class="row">
 						<!-- Column on left -->
-						<div class="col-sm-3 hide-on-mobile">
+						<div class="col-sm-3 hide-on-sm">
 						{exp:channel:entries channel="static_content" url_title="rw-intro"}{text}{/exp:channel:entries}
 						</div>
 						<!-- Column on right, contains the paginated scrolling area -->
@@ -149,15 +149,30 @@
 									<li>
 										<div>
 											{picture_grid}
-											<div class="row">
-												<div class="col-xs-4">
-													<img class="img-thumbnail" src="{picture_grid:pic1}">
+											<div class="row" style="padding-bottom: 30px">
+												<div class="col-md-6 col-lg-4 rw-grid-element">
+													<img class="img-thumbnail hover-image" src="{picture_grid:pic1}">
+													<div class="recent-hover" onclick="location.href='{picture_grid:url1}'">
+														<h3>{picture_grid:title_1}</h3>
+														<p>{picture_grid:desc1}</p>
+														<span><strong>Click to visit site.</strong></span>
+													</div>
 												</div>
-												<div class="col-xs-4">
+												<div class="col-lg-4 col-md-6 rw-grid-element">
 													<img class="img-thumbnail" src="{picture_grid:pic2}">
+													<div class="recent-hover" onclick="location.href='{picture_grid:url2}'">
+														<h3>{picture_grid:title_2}</h3>
+														<p>{picture_grid:desc2}</p>
+														<span><strong>Click to visit site.</strong></span>
+													</div>
 												</div>
-												<div class="col-xs-4">
+												<div class="col-lg-4 col-md-6 rw-grid-element">
 													<img class="img-thumbnail" src="{picture_grid:pic3}">
+													<div class="recent-hover" onclick="location.href='{picture_grid:url3}'">
+														<h3>{picture_grid:title_3}</h3>
+														<p>{picture_grid:desc3}</p>
+														<span><strong>Click to visit site.</strong></span>
+													</div>
 												</div>
 											</div>
 											{/picture_grid}

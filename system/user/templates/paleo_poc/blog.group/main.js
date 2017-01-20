@@ -15,7 +15,8 @@ $(document).ready(function() {
         directionNav: false
     });
     $('#recentslider').flexslider({
-        directionNav: true
+        directionNav: false,
+        pauseOnHover: true
     });
     /* Handle search bar expanding / contracting */
     /* It should expand when hovered, stay expanded when focused on, and then
@@ -50,10 +51,15 @@ function respondToWindowSize() {
 }
 
 function searchBarHoverIn() {
-    console.log("hover in");
     if (window.innerWidth >= mobileSize) {
+        var resizeResponsively = "0px";
+        if (window.innerWidth > 1200) {
+            resizeResponsively = "250px";
+        } else {
+            resizeResponsively = window.innerWidth > 992 ? "200px" : "120px";
+        }
         $(searchBar).velocity({
-            width: window.innerWidth > 992 ? "250px" : "150px"
+            width: resizeResponsively
         },
         {
             duration: 250
