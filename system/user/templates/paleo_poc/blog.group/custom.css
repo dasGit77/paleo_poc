@@ -28,11 +28,6 @@
 /* Small size or greater (tablet) */
 @media (min-width: 768px) 
 {
-    .navLinks
-    {
-        border-left: solid 1px #000;
-    }
-
     /* Prevent double borders */
     .navLinks > li
     {
@@ -86,21 +81,83 @@
     }
 
     /* Style the navbar links */
-    li > a
+    .navbar li > a
     {
         padding-top: 8px !important;
         padding-bottom: 8px !important;
+    }
+
+    .navbar li > a:hover {
+        background-color: rgba(0,0,0,0);
+        color: orange;
+    }
+
+    .navbar li > a:focus {
+        background-color: rgba(0,0,0,0);
+    }
+
+    .homeButton {
+    background-color: #c26548;
+    border-width: 2px;
+    border-radius: 5px;
+    }
+
+    .homeButtonContainer {
+        border-width: 0px !important;
+    }
+
+    .homeButton:hover {
+        background-color: #fe5a30 !important;
+        color: white !important;
+    }
+
+    .homeButton:focus {
+        background-color: #fe5a30 !important;
+    }
+
+    .homeButton:active {
+        background-color: #fe5a30 !important;
     }
 
     .desktop-navbar 
     {
         margin: 0px;
     }
+
+    .flex-control-nav {
+        width: 30%;
+        right: 0px;
+    }
+
+    /* The navbar brand is invisible until mobile resolution, to avoid the menu breaking. */
+    .navbar-brand {
+        display: none !important;
+    }
+
+    /* Instead, use this element so that the navbar can float in front of it */
+    #brand-desktop {
+        position: absolute;
+        width: 175px;
+        height: 50px;
+        top:25px;
+        left:5%;
+    }
+
+    #brand-link {
+        display:inline-block;
+        width:100%;
+        height:100%;
+    }
 }
 
 /* Medium size or greater (desktop) */
-@media (min-width: 992px)
-{
+@media (min-width: 992px) {
+    .navbar li > a
+    {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
     .navbar-img
     {
         height: 40px;
@@ -123,6 +180,13 @@
         max-width: 250px;
     }
 
+    .flexslider li > a {
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 0px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
 }
 
 /* Huge size or greater (desktop)*/
@@ -175,6 +239,10 @@
     {
         margin-bottom: 320px;
     }
+
+    .flex-control-nav {
+        width: 25%;
+    }
 }
 
 /* HD size */
@@ -202,6 +270,9 @@
         font-size: 1.2em;
         font-weight: bold
     }
+    #brand-desktop {
+        display: none;
+    }
 }
 
 /* Smaller than phone size */
@@ -222,14 +293,14 @@
 .nav_search_bar 
 {
     border-radius: 15px;
-    background-color: darkorange;
-    border-color: darkorange;
+    background-color: #c26548;
+    border-color: #c26548;
     color: white;
 }
 
 footer 
 {
-    color: darkgrey;
+    color: white;
     background-color: #666;
     width: 100%;
     border-top: 4px black solid;
@@ -242,9 +313,8 @@ footer
     height: auto;
     margin: 0px;
     padding-bottom: 15px;
+    color: #cfcfcf;
 }
-
-
 
 .min-line-height 
 {
@@ -261,7 +331,7 @@ hr
     margin-top: 0 !important;
 }
 
-li > a
+.navbar li > a
 {
     color: white;
 }
@@ -272,6 +342,12 @@ li > a
     left: 15px !important;
     border-top: 1px dashed grey;
     padding-bottom: 15px;
+}
+
+.short {
+    width: 75%;
+    left: 15px !important;
+    padding-top: 15px;
 }
 
 /* The background image needs to be behind everything at the top of the screen with a border separating
@@ -298,6 +374,11 @@ li > a
     padding-right: 25px;
 }
 
+.internal-page-link {
+    padding-left: 25px;
+    padding-top: 25px;
+}
+
 .internal-page-link
 {
     color: black;
@@ -307,7 +388,7 @@ li > a
 
 .internal-page-link:hover
 {
-    color: orange;
+    color: #c26548;
 }
 
 .footer-link
@@ -334,7 +415,7 @@ li > a
     border-radius: 5px;
     padding: 10px;
     color: white;
-    background-color: lightblue;
+    background-color: #35bdf6;
     font-size: 1.25em;
 }
 
@@ -344,8 +425,8 @@ li > a
 }
 
 .top-slider-link:hover {
-    background-color: blue;
-    color: lightgrey;
+    background-color: #36bdff;
+    color: #dddddd;
 }
 
 div .img-responsive {
@@ -353,10 +434,33 @@ div .img-responsive {
 }
 
 h2 {
-    color: darkorange;
+    color: #c26548;
     font-weight: bold;
+    font-size: 1.6em;
 }
 
+
+/* Thanks to https://codepen.io/ibrahimjabbari/pen/ozinB */
+hr.style1 {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
+}
+
+/* My changes to flexslider */
+.flexslider {
+    padding-top: 35px;
+    background-color: rgba(0, 0 , 0, 0);
+    border-width: 0px !important;
+}
+
+.flexslider li > a {
+    background-color: #888888;
+}
+
+.flex-control-paging li a.flex-active {
+    background-color: #bebebe;
+}
 
 /* Support glup and fa icon inside input from: http://bootsnipp.com/snippets/featured/support-glyph-and-fa-icon-inside-input */
 .icon-addon {
@@ -432,5 +536,5 @@ h2 {
 .icon-addon:hover .glyphicon,
 .icon-addon .form-control:focus + .fa,
 .icon-addon:hover .fa {
-    color: yellow;
+    color: white;
 }

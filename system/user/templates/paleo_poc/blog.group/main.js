@@ -7,11 +7,16 @@ $(document).ready(function() {
     /** mobileHandled starts false and navbar-inverse starts removed
      * This way, if the class needs to be added, mobileHandled will be set to true
      * and be correctly mapped */
-
     mobileHandled = false;
     
 
-    $('.flexslider').flexslider();
+    $('.flexslider').flexslider({
+        slideshowSpeed: 6000,
+        directionNav: false
+    });
+    $('#recentslider').flexslider({
+        directionNav: true
+    });
     /* Handle search bar expanding / contracting */
     /* It should expand when hovered, stay expanded when focused on, and then
     lose expansion when losing focus. This is desktop only - mobile search bar does not flex! */
@@ -46,9 +51,9 @@ function respondToWindowSize() {
 
 function searchBarHoverIn() {
     console.log("hover in");
-    if (window.innerWidth > mobileSize) {
+    if (window.innerWidth >= mobileSize) {
         $(searchBar).velocity({
-            width: "250px"
+            width: window.innerWidth > 992 ? "250px" : "150px"
         },
         {
             duration: 250
@@ -57,7 +62,7 @@ function searchBarHoverIn() {
 };
 
 function searchBarHoverOut() {
-    if (window.innerWidth > mobileSize && !$(searchBar).is(":focus")) {
+    if (window.innerWidth >= mobileSize && !$(searchBar).is(":focus")) {
         $(searchBar).velocity("stop");
         $(searchBar).velocity({
             width: "0px"
