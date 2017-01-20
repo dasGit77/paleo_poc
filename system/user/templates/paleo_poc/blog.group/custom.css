@@ -273,6 +273,15 @@
     #brand-desktop {
         display: none;
     }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .border-on-mobile {
+        border-top: 1px dotted grey;
+        border-bottom: 1px dotted grey;
+    }
 }
 
 /* Smaller than phone size */
@@ -439,6 +448,11 @@ h2 {
     font-size: 1.6em;
 }
 
+/* Fix Flexslider arrows being too short */
+.flex-direction-nav a {
+    line-height: 45px;
+}
+
 
 /* Thanks to https://codepen.io/ibrahimjabbari/pen/ozinB */
 hr.style1 {
@@ -448,17 +462,17 @@ hr.style1 {
 }
 
 /* My changes to flexslider */
-.flexslider {
+#topslider {
     padding-top: 35px;
     background-color: rgba(0, 0 , 0, 0);
     border-width: 0px !important;
 }
 
-.flexslider li > a {
+#topslider li > a {
     background-color: #888888;
 }
 
-.flex-control-paging li a.flex-active {
+#topslider .flex-control-paging li a.flex-active {
     background-color: #bebebe;
 }
 

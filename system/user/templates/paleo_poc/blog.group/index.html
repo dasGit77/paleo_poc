@@ -75,7 +75,7 @@
 	</nav>
 	<main>
 		<div class="container-fluid pad-content">
-			<div class="flexslider">
+			<div class="flexslider" id="topslider">
 				<ul class="slides">
 					<!-- It's important that these entries in static content have a valid picture and alt tag, or the slider will break -->
 					{exp:channel:entries channel="static_content" entry_id_from="10" entry_id_to="14" sort="asc"}
@@ -94,7 +94,7 @@
 									<br><br>	
 								</div>
 								<div class="col-sm-6">
-									<img class="" src={image_file} alt={image_alt_tag}>
+									<img class="" style="max-height: 400px;" src={image_file} alt={image_alt_tag}>
 								</div>
 							</div>
 							<br>
@@ -107,7 +107,7 @@
 			</div>
 			<div class="row">
 			{exp:channel:entries channel="internal_pages" limit="4"}
-				<div class="col-sm-3 col-xs-12">
+				<div class="col-sm-3 col-xs-12 border-on-mobile">
 					<div class="text internal-page-preview">
 						<h3>{title}</h3>
 						<br>
@@ -125,24 +125,25 @@
 
 				{/exp:channel:entries}
 			</div>
-			<div class="row">
-				<div class="col-sm-12 col-sm-offset-0">
-					<h3>Recent Work</h3>
-					<hr class="style1">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-sm-offset-0">
+						<h3>Recent Work</h3>
+						<hr class="style1">
 					</div>
-				
+				</div>
 			</div>
 			<div class="row">
 				<!-- This will be a multi-nested row system. Cf. http://stackoverflow.com/questions/24659471/nested-rows-with-bootstrap-grid-system -->
-				<div class="container">
+				<div class="container-fluid">
 					<div class="row">
 						<!-- Column on left -->
-						<div class="col-xs-3">
+						<div class="col-sm-3 hide-on-mobile">
 						{exp:channel:entries channel="static_content" url_title="rw-intro"}{text}{/exp:channel:entries}
 						</div>
 						<!-- Column on right, contains the paginated scrolling area -->
-						<div class="col-xs-9">
-							<div id="recentslider">
+						<div class="col-sm-9">
+							<div class="flexslider" id="recentslider">
 								<ul class="slides">
 									{exp:channel:entries channel="recent_work" sort="asc"}
 									<li>
@@ -218,18 +219,18 @@
                 </div>
             </div>
             <div class="row inner-footer">
-                <div class="col-sm-3 col-sm-offset-1">
+                <div class="col-sm-4 col-md-3 col-sm-offset-1 col-lg-offset-1">
 					<br>
 					{exp:channel:entries channel="static_content" url_title="paleosun-logo"}<img class="navbar-img center-block" src="{image_file}" alt="{image_alt_tag}">{/exp:channel:entries}
 					
                 </div>
-                <div class="col-sm-3 text-center col-sm-offset-0">
+                <div class="col-sm-3 col-md-4 text-center">
 					<br>
                     Smart Web Development.<br>
                     t: (828) 582 - 4975 e: info@paleosun.com
 					
                 </div>
-                <div class="col-sm-3  col-sm-offset-0 text-center">
+                <div class="col-sm-3 text-center">
 					<br>
                     Copyright 2016. PaleoSun, Inc.
 					

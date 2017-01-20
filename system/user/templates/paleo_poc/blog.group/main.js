@@ -10,7 +10,7 @@ $(document).ready(function() {
     mobileHandled = false;
     
 
-    $('.flexslider').flexslider({
+    $('#topslider').flexslider({
         slideshowSpeed: 6000,
         directionNav: false
     });
