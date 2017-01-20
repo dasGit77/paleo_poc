@@ -78,16 +78,26 @@
 					{exp:channel:entries channel="static_content" entry_id_from="10" entry_id_to="14" sort="asc"}
 					<li>
 						<div>
-							<div class="row"><div class="col-12"><h2>{title}</h2></div></div>
+							<div class="row">
+								<div style="padding-left: 25px;">
+									<h2>{title}</h2>
+								</div>
+							</div>
 							<div class="row">
 								<div class="col-sm-6">
-									<p>{text}</p>
+									<p style="padding-left: 25px">{text}</p>
+									<br>
+									<a href="#" class="top-slider-link">{link_text}</a>
+									<br><br>	
 								</div>
 								<div class="col-sm-6">
 									<img class="" src={image_file} alt={image_alt_tag}>
 								</div>
-							</div>					
+							</div>
+							<br>
+								
 						</div>
+						
 					</li>
 					{/exp:channel:entries}
 				</ul>
@@ -122,15 +132,26 @@
 			</div>
 			<div class="row">
 				<div id="recentWork">
-					<div class="row">
-						<!-- First entry should be text, next three are recent work or empty -->
-						<div class="col-sm-3">{exp:channel:entries channel="static_content" url_title="rw-intro"}{text}{/exp:channel:entries}</div>
-						{exp:channel:entries channel="recent_work" paginate="bottom"}
+					<!-- This will be a multi-nested row system. Cf. http://stackoverflow.com/questions/24659471/nested-rows-with-bootstrap-grid-system -->
+					<div class="container">
+						<div class="row">
+							<!-- Column on left -->
+							<div class="col-xs-3">
+							{exp:channel:entries channel="static_content" url_title="rw-intro"}{text}{/exp:channel:entries}
+							</div>
+							<!-- Column on right, contains the paginated scrolling area -->
+							<div class="col-xs-9">
+								<div class="row">
+								{exp:channel:entries channel="recent_work"}
 
-						{/exp:channel:entries}
-					</div>
-					<div class="row">
-						<!-- First row is empty, next three are recent work or empty -->
+								<div class="col-xs-3">
+									<img href='{preview_image}' alt={alt_text}>
+								</div>
+								{/exp:channel:entries}
+								</div>
+
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -177,24 +198,24 @@
                 	<!-- Twitter widget goes here -->
                 </div>
                 <div class="col-sm-3">
-					<h3>Flickr Widget Widget</h3>
+					<h3>Flickr Widget</h3>
 					<hr>
                 	<!-- Flickr Widget goes here -->
                 </div>
             </div>
             <div class="row inner-footer">
-                <div class="col-sm-4">
+                <div class="col-sm-3 col-sm-offset-1">
 					<br>
 					{exp:channel:entries channel="static_content" url_title="paleosun-logo"}<img class="navbar-img center-block" src="{image_file}" alt="{image_alt_tag}">{/exp:channel:entries}
 					
                 </div>
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-3 text-center col-sm-offset-0">
 					<br>
                     Smart Web Development.<br>
                     t: (828) 582 - 4975 e: info@paleosun.com
 					
                 </div>
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-3  col-sm-offset-0 text-center">
 					<br>
                     Copyright 2016. PaleoSun, Inc.
 					

@@ -224,6 +224,7 @@
     border-radius: 15px;
     background-color: darkorange;
     border-color: darkorange;
+    color: white;
 }
 
 footer 
@@ -326,8 +327,34 @@ li > a
     width: auto !important;
 }
 
+.top-slider-link
+{
+    text-decoration: none !important;
+    border: 1px hidden black;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    background-color: lightblue;
+    font-size: 1.25em;
+}
+
+.slides {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.top-slider-link:hover {
+    background-color: blue;
+    color: lightgrey;
+}
+
 div .img-responsive {
   max-width: 40%;
+}
+
+h2 {
+    color: darkorange;
+    font-weight: bold;
 }
 
 
@@ -360,7 +387,8 @@ div .img-responsive {
     margin-left: -2.5px;
     text-align: center;
     padding: 10px 0;
-    top: 1px
+    top: 1px;
+    pointer-events: none;
 }
 
 .icon-addon.addon-lg .form-control {
@@ -404,5 +432,5 @@ div .img-responsive {
 .icon-addon:hover .glyphicon,
 .icon-addon .form-control:focus + .fa,
 .icon-addon:hover .fa {
-    color: #2580db;
+    color: yellow;
 }
